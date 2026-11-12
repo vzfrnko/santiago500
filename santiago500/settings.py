@@ -9,6 +9,9 @@ https://docs.djangoproject.com/en/6.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.1/ref/settings/
 """
+import os
+from dotenv import load_dotenv
+
 
 from pathlib import Path
 
@@ -78,7 +81,8 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
+load_dotenv(BASE_DIR / ".env")
+WAQI_TOKEN = os.environ.get("WAQI_TOKEN", "")
 
 # Password validation
 # https://docs.djangoproject.com/en/6.1/ref/settings/#auth-password-validators
@@ -102,9 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = "es-cl"
+TIME_ZONE = "America/Santiago"
 
 USE_I18N = True
 
